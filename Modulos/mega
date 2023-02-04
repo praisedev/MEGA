@@ -12,17 +12,17 @@
 			clear
 			case $x in
 			3 | 01)
-			bash <(wget -qO- https://www.dropbox.com/s/4r3bgrgixckr752/ubuinst%20%281%29.sh?dl=0)
+			mega
 			;;
 			3 | 02)
-            pweb
+            mega
             ;;
 			3 | 03)
             bash <(wget -qO- https://www.dropbox.com/s/wnwul8lj0p3s26u/sincpainel.sh?dl=0)
             ;;
 			0 | 00)
 			clear
-			menu
+			mega
 			;;
 			*)
 			echo -e "\033[1;31mOpcao invalida !\033[0m"
