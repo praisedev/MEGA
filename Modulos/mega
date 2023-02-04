@@ -31,5 +31,5 @@
 			esac
 		done
 	}
-	fun_conexao
+	fun_mega
 }
