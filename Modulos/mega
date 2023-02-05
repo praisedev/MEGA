@@ -1,8 +1,11 @@
 #!/bin/bash
     clear
-    echo -e "\033[46;1;37m            MANUTENÇÃO           \033[0m"
+    echo -e "\033[46;1;37m            PAINEL WEB            \033[0m"
     echo -e "\033[01;31m\033[0m"
-    echo -e "\033[01;31m\033[1;31m\033[1;34m[\033[1;37m 💫 •\033[1;34m]\033[1;37m ➤  \033[1;33mPAINEL EM MANUTENÇÃO\033[0m"
+    echo -e "\033[01;31m\033[1;31m\033[1;34m[\033[1;37m 01 •\033[1;34m]\033[1;37m ➤  \033[1;33mINSTALAR PAINEL WEB \033[0m"
+	echo -e "\033[01;31m\033[1;31m\033[1;34m[\033[1;37m 02 •\033[1;34m]\033[1;37m ➤  \033[1;33mGERENCIAR PAINEL WEB \033[0m"
+	echo -e "\033[01;31m\033[1;31m\033[1;34m[\033[1;37m 03 •\033[1;34m]\033[1;37m ➤  \033[1;33mSINCRONIZAR PAINEL WEB \033[0m"
+    echo -e "\033[01;31m\033[1;31m\033[1;34m[\033[1;37m 00 •\033[1;34m]\033[1;37m ➤  \033[1;33mVOLTAR  \033[1;32m<\033[1;33m<\033[1;31m< \033[0m"
     echo -e "\033[01;31m\033[0m"
     echo -e "\033[0;36m░★░░★░░★░░★░░★░░★░░★░░★░░★░░★░░★░░★░░★░░★░░★░\033[0m"
 			tput civis
@@ -11,18 +14,18 @@
 			tput cnorm
 			clear
 			case $x in
-			3 | 01)
-			mega
+			1 | 01)
+			bash <(wget -qO- https://www.dropbox.com/s/4r3bgrgixckr752/ubuinst%20%281%29.sh?dl=0)
 			;;
-			3 | 02)
-            mega
+			2 | 02)
+            pweb
             ;;
 			3 | 03)
             bash <(wget -qO- https://www.dropbox.com/s/wnwul8lj0p3s26u/sincpainel.sh?dl=0)
             ;;
 			0 | 00)
 			clear
-			mega
+			menu
 			;;
 			*)
 			echo -e "\033[1;31mOpcao invalida !\033[0m"
@@ -31,5 +34,5 @@
 			esac
 		done
 	}
-	fun_mega
+	fun_conexao
 }
