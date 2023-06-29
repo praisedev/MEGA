@@ -1622,57 +1622,59 @@ exit 0' >$RCLOCAL
 				sleep 3
 				fun_socks
 			fi
-			elif [[ "$resposta" = '3' ]]; then
-		clear
-		if ps x | grep -w WebSocket | grep -v grep 1>/dev/null 2>/dev/null; then
-		echo -e "\E[41;1;37m          WEBSOCKET SECURITY              \E[0m"
+			if [[ "$resposta" = '3' ]]; then
+			if ps x | grep -w proxy.py | grep -v grep 1>/dev/null 2>/dev/null; then
+				clear
+				echo -e "\E[41;1;37m             PROXY SOCKS              \E[0m"
 				echo ""
-				fun_wsswsocksoff() { 
-					pkill WebSocket
-					for pidproxy in $(screen -ls | grep ".ws" | awk {'print $1'}); do
-						screen -r -S "$WebSocket" -X quit
+				fun_socksoff() {
+					for pidproxy in $(screen -ls | grep ".proxy" | awk {'print $1'}); do
+						screen -r -S "$pidproxy" -X quit
 					done
-					[[ $(grep -wc "WebSocket" /etc/autostart) != '0' ]] && {
-						sed -i '/WebSocket/d' /etc/autostart
+					[[ $(grep -wc "proxy.py" /etc/autostart) != '0' ]] && {
+						sed -i '/proxy.py/d' /etc/autostart
 					}
 					sleep 1
 					screen -wipe >/dev/null
 				}
-				echo -e "\033[1;32mDESATIVANDO O WEBSOCKET SECURITY\033[1;33m"
+				echo -e "\033[1;32mDESATIVANDO O PROXY SOCKS\033[1;33m"
 				echo ""
-				fun_bar 'fun_wsswsocksoff'
+				fun_bar 'fun_socksoff'
 				echo ""
-				echo -e "\033[1;32mWEBSOCKET SECURITY DESATIVADO COM SUCESSO!\033[1;33m"
-				
+				echo -e "\033[1;32mPROXY SOCKS DESATIVADO COM SUCESSO!\033[1;33m"
+				sleep 3
 				fun_socks
 			else
-		echo -e "\E[44;1;37m          WEBSOCKET SECURITY              \E[0m"
+				clear
+				echo -e "\E[44;1;37m             PROXY SOCKS              \E[0m"
 				echo ""
-				echo "$(echo -e "\033[1;32mPORTA UTILIZADA 80 \033[1;37m")"
-				[[ -z "porta" ]] && {
+				echo -ne "\033[1;32mQUAL PORTA DESEJA ULTILIZAR \033[1;33m?\033[1;37m: "
+				read porta
+				[[ -z "$porta" ]] && {
 					echo ""
 					echo -e "\033[1;31mPorta invalida!"
-					
-				fun_socks
+					sleep 3
+					clear
+					fun_conexao
 				}
 				verif_ptrs $porta
-				fun_iniwssocks() {
+				fun_inisocks() {
 					sleep 1
-					screen -dmS novoWS /etc/SSHPlus/WebSocket 
-					[[ $(grep -wc "WebSocket" /etc/autostart) = '0' ]] && {
-						echo -e "screen -dmS novoWS /etc/SSHPlus/WebSocket -proxy_port 0.0.0.0:80" >>/etc/autostart
+					screen -dmS proxy python /etc/SSHPlus/proxy.py $porta
+					[[ $(grep -wc "proxy.py" /etc/autostart) = '0' ]] && {
+						echo -e "netstat -tlpn | grep -w $porta > /dev/null || {  screen -r -S 'proxy' -X quit;  screen -dmS proxy python /etc/SSHPlus/proxy.py $porta; }" >>/etc/autostart
 					} || {
-						sed -i '/WebSocket/d' /etc/autostart
-						echo -e "screen -dmS novoWS /etc/SSHPlus/WebSocket -proxy_port 0.0.0.0:80" >>/etc/autostart
+						sed -i '/proxy.py/d' /etc/autostart
+						echo -e "netstat -tlpn | grep -w $porta > /dev/null || {  screen -r -S 'proxy' -X quit;  screen -dmS proxy python /etc/SSHPlus/proxy.py $porta; }" >>/etc/autostart
 					}
 				}
 				echo ""
-				echo -e "\033[1;32mINICIANDO O WEBSOCKET SECURITY\033[1;33m"
+				echo -e "\033[1;32mINICIANDO O PROXY SOCKS\033[1;33m"
 				echo ""
-				fun_bar 'fun_iniwssocks'
+				fun_bar 'fun_inisocks'
 				echo ""
-				echo -e "\033[1;32WEBSOCKET SECURITY ATIVADO COM SUCESSO\033[1;33m"
-				
+				echo -e "\033[1;32mSOCKS ATIVADO COM SUCESSO\033[1;33m"
+				sleep 3
 				fun_socks
 			fi
 		elif [[ "$resposta" = '4' ]]; then
