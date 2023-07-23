@@ -1688,11 +1688,10 @@ elif [[ "$resposta" = '3' ]]; then
 				echo ""
 				fun_bar 'fun_iniwssocks'
 				echo ""
-				echo -e "\033[1;32WEBSOCKET SECURITY ATIVADO COM SUCESSO\033[1;33m"
-				
+				echo -e "\033[1;32WSSOCKS SECURITY ATIVADO COM SUCESSO\033[1;33m"
+				sleep 3
 				fun_socks
 			fi
-
 
 
 
