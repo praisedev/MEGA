@@ -1646,7 +1646,7 @@ elif [[ "$resposta" = '3' ]]; then
 				echo ""
 				fun_wsswsocksoff() { 
 					pkill WebSocket
-					for pidproxy in $(screen -ls | grep ".ws" | awk {'print $1'}); do
+					for pidproxy in $(screen -ls | grep ".ws2" | awk {'print $1'}); do
 						screen -r -S "$WebSocket" -X quit
 					done
 					[[ $(grep -wc "WebSocket" /etc/autostart) != '0' ]] && {
