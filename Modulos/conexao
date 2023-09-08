@@ -1664,7 +1664,6 @@ elif [[ "$resposta" = '3' ]]; then
 				
 				fun_socks
 			else
-			figlet 'GUSTAVO VPN' | lolcat
 		echo -e "\E[44;1;37m       🚀   WEBSOCKET SECURITY   🚀           \E[0m"
 				echo ""
 				rm -rf /etc/mamalista
