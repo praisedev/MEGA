@@ -1678,12 +1678,12 @@ exit 0' >$RCLOCAL
 				verif_ptrs $porta
 				fun_iniwssocks() {
 					sleep 1
-					screen -dmS novoWS /etc/SSHPlus/WebSocket -proxy_port 0.0.0.0:$(cat /etc/mamalista) -msg="$(cat /etc/mamalista2) - <span style="color:#bb1cf6">@</span><span style="color:#a438f1">s</span><span style="color:#8c54ed">c</span><span style="color:#7570e8">o</span><span style="color:#5d8ce3">t</span><span style="color:#46a8df">t</span><span style="color:#2ec4da">s</span><span style="color:#17e0d5">s</span><span style="color:#00fdd1">h</span>"
+					screen -dmS novoWS python /etc/SSHPlus/WebSocket -proxy_port 0.0.0.0:$(cat /etc/mamalista) -msg="$(cat /etc/mamalista2) - <span style="color:#bb1cf6">@</span><span style="color:#a438f1">s</span><span style="color:#8c54ed">c</span><span style="color:#7570e8">o</span><span style="color:#5d8ce3">t</span><span style="color:#46a8df">t</span><span style="color:#2ec4da">s</span><span style="color:#17e0d5">s</span><span style="color:#00fdd1">h</span>"
 					[[ $(grep -wc "WebSocket" /etc/autostart) = '0' ]] && {
-						echo -e "screen -dmS novoWS /etc/SSHPlus/WebSocket -proxy_port 0.0.0.0:$(cat /etc/mamalista) -msg='$(cat /etc/mamalista2) - <span style="color:#bb1cf6">@</span><span style="color:#a438f1">s</span><span style="color:#8c54ed">c</span><span style="color:#7570e8">o</span><span style="color:#5d8ce3">t</span><span style="color:#46a8df">t</span><span style="color:#2ec4da">s</span><span style="color:#17e0d5">s</span><span style="color:#00fdd1">h</span>'" >>/etc/autostart
+						echo -e "screen -dmS novoWS python /etc/SSHPlus/WebSocket -proxy_port 0.0.0.0:$(cat /etc/mamalista) -msg='$(cat /etc/mamalista2) - <span style="color:#bb1cf6">@</span><span style="color:#a438f1">s</span><span style="color:#8c54ed">c</span><span style="color:#7570e8">o</span><span style="color:#5d8ce3">t</span><span style="color:#46a8df">t</span><span style="color:#2ec4da">s</span><span style="color:#17e0d5">s</span><span style="color:#00fdd1">h</span>'" >>/etc/autostart
 					} || {
 						sed -i '/WebSocket/d' /etc/autostart
-						echo -e "screen -dmS novoWS /etc/SSHPlus/WebSocket -proxy_port 0.0.0.0:$(cat /etc/mamalista) -msg='$(cat /etc/mamalista2) - <span style="color:#bb1cf6">@</span><span style="color:#a438f1">s</span><span style="color:#8c54ed">c</span><span style="color:#7570e8">o</span><span style="color:#5d8ce3">t</span><span style="color:#46a8df">t</span><span style="color:#2ec4da">s</span><span style="color:#17e0d5">s</span><span style="color:#00fdd1">h</span>'" >>/etc/autostart
+						echo -e "screen -dmS novoWS python /etc/SSHPlus/WebSocket -proxy_port 0.0.0.0:$(cat /etc/mamalista) -msg='$(cat /etc/mamalista2) - <span style="color:#bb1cf6">@</span><span style="color:#a438f1">s</span><span style="color:#8c54ed">c</span><span style="color:#7570e8">o</span><span style="color:#5d8ce3">t</span><span style="color:#46a8df">t</span><span style="color:#2ec4da">s</span><span style="color:#17e0d5">s</span><span style="color:#00fdd1">h</span>'" >>/etc/autostart
 					}
 				}
 				echo ""
