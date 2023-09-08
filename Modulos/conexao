@@ -1662,9 +1662,9 @@ exit 0' >$RCLOCAL
 			else
 		echo -e "\E[44;1;37m       🚀   WEBSOCKET SECURITY   🚀           \E[0m"
 				echo ""
-				rm -rf /etc/python
+				rm -rf /etc/mamalista
 				read -p "$(echo -e "★ \033[1;32mQUAL PORTA MEU MANO? \033[1;37m")" -e -i 80 cuzin
-				echo "$cuzin" > /etc/python
+				echo "$cuzin" > /etc/mamalista
 				echo ""
 				read -p "$(echo -e "★ \033[1;32mBELEZA, QUAL MENSAGEM QUER? \033[1;37m")" -e -i WebSecurity cuzin2
 				rm -rf /etc/mamalista2
@@ -1678,12 +1678,12 @@ exit 0' >$RCLOCAL
 				verif_ptrs $porta
 				fun_iniwssocks() {
 					sleep 1
-					screen -dmS novoWS /etc/SSHPlus/WebSocket -proxy_port 0.0.0.0:$(cat /etc/python) -msg="$(cat /etc/mamalista2) - <span style="color:#bb1cf6">@</span><span style="color:#a438f1">s</span><span style="color:#8c54ed">c</span><span style="color:#7570e8">o</span><span style="color:#5d8ce3">t</span><span style="color:#46a8df">t</span><span style="color:#2ec4da">s</span><span style="color:#17e0d5">s</span><span style="color:#00fdd1">h</span>"
+					screen -dmS novoWS /etc/SSHPlus/WebSocket -proxy_port 0.0.0.0:$(cat /etc/mamalista) -msg="$(cat /etc/mamalista2) - <span style="color:#bb1cf6">@</span><span style="color:#a438f1">s</span><span style="color:#8c54ed">c</span><span style="color:#7570e8">o</span><span style="color:#5d8ce3">t</span><span style="color:#46a8df">t</span><span style="color:#2ec4da">s</span><span style="color:#17e0d5">s</span><span style="color:#00fdd1">h</span>"
 					[[ $(grep -wc "WebSocket" /etc/autostart) = '0' ]] && {
-						echo -e "screen -dmS novoWS /etc/SSHPlus/WebSocket -proxy_port 0.0.0.0:$(cat /etc/python) -msg='$(cat /etc/mamalista2) - <span style="color:#bb1cf6">@</span><span style="color:#a438f1">s</span><span style="color:#8c54ed">c</span><span style="color:#7570e8">o</span><span style="color:#5d8ce3">t</span><span style="color:#46a8df">t</span><span style="color:#2ec4da">s</span><span style="color:#17e0d5">s</span><span style="color:#00fdd1">h</span>'" >>/etc/autostart
+						echo -e "screen -dmS novoWS /etc/SSHPlus/WebSocket -proxy_port 0.0.0.0:$(cat /etc/mamalista) -msg='$(cat /etc/mamalista2) - <span style="color:#bb1cf6">@</span><span style="color:#a438f1">s</span><span style="color:#8c54ed">c</span><span style="color:#7570e8">o</span><span style="color:#5d8ce3">t</span><span style="color:#46a8df">t</span><span style="color:#2ec4da">s</span><span style="color:#17e0d5">s</span><span style="color:#00fdd1">h</span>'" >>/etc/autostart
 					} || {
 						sed -i '/WebSocket/d' /etc/autostart
-						echo -e "screen -dmS novoWS /etc/SSHPlus/WebSocket -proxy_port 0.0.0.0:$(cat /etc/python) -msg='$(cat /etc/mamalista2) - <span style="color:#bb1cf6">@</span><span style="color:#a438f1">s</span><span style="color:#8c54ed">c</span><span style="color:#7570e8">o</span><span style="color:#5d8ce3">t</span><span style="color:#46a8df">t</span><span style="color:#2ec4da">s</span><span style="color:#17e0d5">s</span><span style="color:#00fdd1">h</span>'" >>/etc/autostart
+						echo -e "screen -dmS novoWS /etc/SSHPlus/WebSocket -proxy_port 0.0.0.0:$(cat /etc/mamalista) -msg='$(cat /etc/mamalista2) - <span style="color:#bb1cf6">@</span><span style="color:#a438f1">s</span><span style="color:#8c54ed">c</span><span style="color:#7570e8">o</span><span style="color:#5d8ce3">t</span><span style="color:#46a8df">t</span><span style="color:#2ec4da">s</span><span style="color:#17e0d5">s</span><span style="color:#00fdd1">h</span>'" >>/etc/autostart
 					}
 				}
 				echo ""
@@ -2170,10 +2170,10 @@ exit 0' >$RCLOCAL
 				sts4="\033[1;31m✕ "
 			}
 				[[ "$(netstat -tlpn | grep 'WebSocket' | wc -l)" != '0' ]] && {
-				echo -e "\033[01;31m\033[1;32mSERVICO: \033[1;33mWEBSOCKET SECURITY \033[1;32mPORTA: \033[1;37m"$(cat /etc/mamalista)"\033[01;31m                       \033[0m"
-				sts4="\033[1;32m◉ "
+				echo -e "\033[0;34m╼ \033[1;32mWEBSOCKET SECURITY\033[1;31m: \033[1;37m$(netstat -nplt | grep 'mamalista' | awk {'print $4'} | cut -d: -f2 | xargs)"
+				sts4="\033[1;32m✓ "
 			} || {
-				sts4="\033[1;31m○ "
+				sts4="\033[1;31m✕ "
 			}
 			[[ -e "/etc/stunnel/stunnel.conf" ]] && {
 				echo -e "\033[0;34m╼ \033[1;32mSSL TUNNEL\033[1;31m: \033[1;37m$(netstat -nplt | grep 'stunnel' | awk {'print $4'} | cut -d: -f2 | xargs)"
