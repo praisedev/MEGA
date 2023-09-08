@@ -2170,10 +2170,10 @@ exit 0' >$RCLOCAL
 				sts4="\033[1;31m✕ "
 			}
 				[[ "$(netstat -tlpn | grep 'WebSocket' | wc -l)" != '0' ]] && {
-				echo -e "\033[0;34m╼ \033[1;32mWEBSOCKET SECURITY\033[1;31m: \033[1;37m$(netstat -nplt | grep 'mamalista' | awk {'print $4'} | cut -d: -f2 | xargs)"
-				sts4="\033[1;32m✓ "
+				echo -e "\033[01;31m\033[1;32mSERVICO: \033[1;33mWEBSOCKET SECURITY \033[1;37m"$(cat /etc/mamalista)"\033[01;31m                       \033[0m"
+				sts4="\033[1;32m◉ "
 			} || {
-				sts4="\033[1;31m✕ "
+				sts4="\033[1;31m○ "
 			}
 			[[ -e "/etc/stunnel/stunnel.conf" ]] && {
 				echo -e "\033[0;34m╼ \033[1;32mSSL TUNNEL\033[1;31m: \033[1;37m$(netstat -nplt | grep 'stunnel' | awk {'print $4'} | cut -d: -f2 | xargs)"
