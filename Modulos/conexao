@@ -2170,7 +2170,7 @@ exit 0' >$RCLOCAL
 				sts4="\033[1;31m✕ "
 			}
 				[[ "$(netstat -tlpn | grep 'WebSocket' | wc -l)" != '0' ]] && {
-				echo -e "\033[0;34m╼ \033[1;32mWEBSOCKET SECURITY \033[1;37m"$(cat /etc/mamalista)"\033[01;31m                       \033[0m"
+				echo -e "\033[0;34m╼ \033[1;32mWEBSOCKET SECURITY\033[1;31m: \033[1;37m"$(cat /etc/mamalista)"\033[01;31m                       \033[0m"
 				sts4="\033[1;32m✓ "
 			} || {
 				sts4="\033[1;31m✕ "
