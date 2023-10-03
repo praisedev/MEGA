@@ -13,7 +13,7 @@ except:
 PASS = ''
 BUFLEN = 8196 * 8
 TIMEOUT = 60
-MSG = '<span style="color:#c33bd2">@</span><span style="color:#8c72d5">s</span><span style="color:#55aad9">c</span><span style="color:#1de1dc">o</span><span style="color:#00ffdf">t</span><span style="color:#29c4e5">t</span><span style="color:#508cec">s</span><span style="color:#7754f4">s</span><span style="color:#9e1cfb">h</span>'
+MSG = '<span style="color:#c33bd2">@</span><span style="color:#8c72d5">M</span><span style="color:#55aad9">E</span><span style="color:#1de1dc">G</span><span style="color:#00ffdf">A</span><span style="color:#29c4e5">L</span><span style="color:#508cec">O</span><span style="color:#7754f4">D</span><span style="color:#9e1cfb">O</span><span style="color:#508cec">N</span><span style="color:#7754f4">_</span><span style="color:#9e1cfb">S</span><span style="color:#7754f4">S</span><span style="color:#9e1cfb">H</span>'
 COR = '<font color="null">'
 FTAG = '</font>'
 DEFAULT_HOST = '0.0.0.0:22'
