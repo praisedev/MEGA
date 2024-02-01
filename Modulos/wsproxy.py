@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # encoding: utf-8
-# scottssh
+# CRAZY By @Crazy_vpn
 import socket, threading, thread, select, signal, sys, time, getopt
-MSG = '<span style="color:#c33bd2">@</span><span style="color:#8c72d5">s</span><span style="color:#55aad9">c</span><span style="color:#1de1dc">o</span><span style="color:#00ffdf">t</span><span style="color:#29c4e5">t</span><span style="color:#508cec">s</span><span style="color:#7754f4">s</span><span style="color:#9e1cfb">h</span>'
+MSG = '@MEGALODON_SSH'
 COR = '<font color="null">'
 FTAG = '</font>'
 PASS = ''
@@ -252,7 +252,7 @@ def main(host=LISTENING_ADDR, port=LISTENING_PORT):
     print "\033[0;34m━"*8,"\033[1;32m PROXY WEBSOCKET","\033[0;34m━"*8,"\n"
     print "\033[1;33mIP:\033[1;32m " + LISTENING_ADDR
     print "\033[1;33mPORTA:\033[1;32m " + str(LISTENING_PORT) + "\n"
-    print "\033[0;34m━"*10,"\033[1;32m scottssh","\033[0;34m━\033[1;37m"*11,"\n"
+    print "\033[0;34m━"*10,"\033[1;32m CRAZY","\033[0;34m━\033[1;37m"*11,"\n"
     
     
     server = Server(LISTENING_ADDR, LISTENING_PORT)
