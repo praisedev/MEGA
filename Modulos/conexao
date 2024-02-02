@@ -1629,17 +1629,17 @@ exit 0' >$RCLOCAL
 
 elif [[ "$resposta" = '3' ]]; then
 		clear
-		if ps x | grep -w security | grep -v grep 1>/dev/null 2>/dev/null; then
+		if ps x | grep -w WebSocket | grep -v grep 1>/dev/null 2>/dev/null; then
 		figlet 'MEGALODON SSH' | lolcat
 		echo -e "\E[41;1;37m       🚀   WEBSOCKET SECURITY   🚀           \E[0m"
 				echo ""
 				fun_wsswsocksoff() { 
-					pkill security
+					pkill WebSocket
 					for pidproxy in $(screen -ls | grep ".ws" | awk {'print $1'}); do
-						screen -r -S "$security" -X quit
+						screen -r -S "$WebSocket" -X quit
 					done
-					[[ $(grep -wc "security" /etc/autostart) != '0' ]] && {
-						sed -i '/security/d' /etc/autostart
+					[[ $(grep -wc "WebSocket" /etc/autostart) != '0' ]] && {
+						sed -i '/WebSocket/d' /etc/autostart
 					}
 					sleep 1
 					screen -wipe >/dev/null
@@ -1671,12 +1671,12 @@ elif [[ "$resposta" = '3' ]]; then
 				verif_ptrs $porta
 				fun_iniwssocks() {
 					sleep 1
-					screen -dmS novoWS /etc/SSHPlus/security -proxy_port 0.0.0.0:$(cat /etc/mamalista) -msg="$(cat /etc/mamalista2) - <span style="color:#bb1cf6">@</span><span style="color:#a438f1">M</span><span style="color:#8c54ed">E</span><span style="color:#7570e8">G</span><span style="color:#5d8ce3">A</span><span style="color:#46a8df">L</span><span style="color:#2ec4da">O</span><span style="color:#17e0d5">D</span><span style="color:#00fdd1">O</span><span style="color:#46a8df">N</span><span style="color:#2ec4da">_</span><span style="color:#17e0d5">S</span><span style="color:#00fdd1">S</span><span style="color:#00fdd1">H</span>"
-					[[ $(grep -wc "security" /etc/autostart) = '0' ]] && {
-						echo -e "screen -dmS novoWS /etc/SSHPlus/security -proxy_port 0.0.0.0:$(cat /etc/mamalista) -msg='$(cat /etc/mamalista2) - <span style="color:#bb1cf6">@</span><span style="color:#a438f1">M</span><span style="color:#8c54ed">E</span><span style="color:#7570e8">G</span><span style="color:#5d8ce3">A</span><span style="color:#46a8df">L</span><span style="color:#2ec4da">O</span><span style="color:#17e0d5">D</span><span style="color:#00fdd1">O</span><span style="color:#46a8df">N</span><span style="color:#2ec4da">_</span><span style="color:#17e0d5">S</span><span style="color:#00fdd1">S</span><span style="color:#00fdd1">H</span>'" >>/etc/autostart
+					screen -dmS novoWS /etc/SSHPlus/WebSocket -proxy_port 0.0.0.0:$(cat /etc/mamalista) -msg="$(cat /etc/mamalista2) - <span style="color:#bb1cf6">@</span><span style="color:#a438f1">M</span><span style="color:#8c54ed">E</span><span style="color:#7570e8">G</span><span style="color:#5d8ce3">A</span><span style="color:#46a8df">L</span><span style="color:#2ec4da">O</span><span style="color:#17e0d5">D</span><span style="color:#00fdd1">O</span><span style="color:#46a8df">N</span><span style="color:#2ec4da">_</span><span style="color:#17e0d5">S</span><span style="color:#00fdd1">S</span><span style="color:#00fdd1">H</span>"
+					[[ $(grep -wc "WebSocket" /etc/autostart) = '0' ]] && {
+						echo -e "screen -dmS novoWS /etc/SSHPlus/WebSocket -proxy_port 0.0.0.0:$(cat /etc/mamalista) -msg='$(cat /etc/mamalista2) - <span style="color:#bb1cf6">@</span><span style="color:#a438f1">M</span><span style="color:#8c54ed">E</span><span style="color:#7570e8">G</span><span style="color:#5d8ce3">A</span><span style="color:#46a8df">L</span><span style="color:#2ec4da">O</span><span style="color:#17e0d5">D</span><span style="color:#00fdd1">O</span><span style="color:#46a8df">N</span><span style="color:#2ec4da">_</span><span style="color:#17e0d5">S</span><span style="color:#00fdd1">S</span><span style="color:#00fdd1">H</span>'" >>/etc/autostart
 					} || {
-						sed -i '/security/d' /etc/autostart
-						echo -e "screen -dmS novoWS /etc/SSHPlus/security -proxy_port 0.0.0.0:$(cat /etc/mamalista) -msg='$(cat /etc/mamalista2) - <span style="color:#bb1cf6">@</span><span style="color:#a438f1">M</span><span style="color:#8c54ed">E</span><span style="color:#7570e8">G</span><span style="color:#5d8ce3">A</span><span style="color:#46a8df">L</span><span style="color:#2ec4da">O</span><span style="color:#17e0d5">D</span><span style="color:#00fdd1">O</span><span style="color:#46a8df">N</span><span style="color:#2ec4da">_</span><span style="color:#17e0d5">S</span><span style="color:#00fdd1">S</span><span style="color:#00fdd1">H</span>'" >>/etc/autostart
+						sed -i '/WebSocket/d' /etc/autostart
+						echo -e "screen -dmS novoWS /etc/SSHPlus/WebSocket -proxy_port 0.0.0.0:$(cat /etc/mamalista) -msg='$(cat /etc/mamalista2) - <span style="color:#bb1cf6">@</span><span style="color:#a438f1">M</span><span style="color:#8c54ed">E</span><span style="color:#7570e8">G</span><span style="color:#5d8ce3">A</span><span style="color:#46a8df">L</span><span style="color:#2ec4da">O</span><span style="color:#17e0d5">D</span><span style="color:#00fdd1">O</span><span style="color:#46a8df">N</span><span style="color:#2ec4da">_</span><span style="color:#17e0d5">S</span><span style="color:#00fdd1">S</span><span style="color:#00fdd1">H</span>'" >>/etc/autostart
 					}
 				}
 				echo ""
@@ -2222,7 +2222,7 @@ echo -e "\033[01;31m╚═══════════════════
 			} || {
 				sts4="\033[1;31m○ "
 			}
-				[[ "$(netstat -tlpn | grep 'security' | wc -l)" != '0' ]] && {
+				[[ "$(netstat -tlpn | grep 'WebSocket' | wc -l)" != '0' ]] && {
 				echo -e "\033[01;31m\033[1;32mSERVICO: \033[1;33mWEBSOCKET SECURITY \033[1;32mPORTA: \033[1;37m"$(cat /etc/mamalista)"\033[01;31m                       \033[0m"
 				sts4="\033[1;32m◉ "
 			} || {
