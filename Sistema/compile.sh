@@ -1,27 +1,27 @@
 #!/bin/bash
 
-tput setaf 7 ; tput setab 4 ; tput bold ; printf '%50s%s%-20s\n' "BadVPN, created By THE_ORION_SCRIPT_PRO" ; tput sgr0
+tput setaf 7 ; tput setab 4 ; tput bold ; printf '%50s%s%-20s\n' "BadVPN" ; tput sgr0
 if [ -f "/usr/local/bin/badvpn-udpgw" ]
 then
 	tput setaf 3 ; tput bold ; echo ""
 	echo ""
-	echo "O BadVPN já foi instalado com sucesso."
-	echo "Para executar, crie uma sessão screen"
-	echo "E execute o comando:"
+	echo "BadVPN has now been successfully installed."
+	echo "To run, create a screen session"
+	echo "And run the command:"
 	echo ""
 	echo "badudp"
 	echo ""
-	echo "E deixe a sessão screen rodando em segundo plano."
+	echo "And leave the screen session running in the background."
 	echo "" ; tput sgr0
 	exit
 else
 tput setaf 2 ; tput bold ; echo ""
-echo -e "\033[1;36mEste é um script que compila e instala automaticamente o programa BadVPN em servidores Debian e Ubuntu para ativar o encaminhamento UDP na porta 7300, usado por programas como HTTP Injector da Evozi. Permitindo assim a utilização do protocolo UDP para jogos online, chamadas VoIP e outras coisas interessantes.\033[0m"
+echo -e "\033[1;36mThis is a script that automatically compiles and installs the BadVPN program on Debian and Ubuntu servers to enable UDP forwarding on port 7300, used by programs like Evozi's HTTP Injector. This allows the use of the UDP protocol for online gaming, VoIP calls and other interesting things.\033[0m"
 echo "" ; tput sgr0
 read -p "Deseja continuar? [s/n]: " -e -i n resposta
 if [[ "$resposta" = 's' ]]; then
 	echo ""
-	echo -e "\033[1;31mA instalação pode demorar bastante... seja paciente!\033[0m"
+	echo -e "\033[1;31mInstallation may take a while... please be patient!\033[0m"
 	sleep 3
 	apt-get update -y
 	apt-get install screen wget gcc build-essential g++ make -y
@@ -52,7 +52,7 @@ if [[ "$resposta" = 's' ]]; then
 	clear
 	tput setaf 3 ; tput bold ; echo ""
 	echo ""
-	echo -e "\033[1;36mBadVPN instalado com sucesso. Para usar, crie uma sessão screen e execute o comando badudp e deixe a sessão screen rodando em segundo plano.\033[0m"
+	echo -e "\033[1;36mBadVPN installed successfully. To use, create a screen session and run the badudp command and leave the screen session running in the background.\033[0m"
 	echo "" ; tput sgr0
 	exit
 else 
