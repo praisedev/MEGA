@@ -1,10 +1,9 @@
 #!/bin/bash
 clear
-#--------@MEGALODON_SSH-----------#
 source ShellBot.sh
 touch lista
 [[ -z $1 ]] && {
-    clear && echo "INFORME O TOKEN" && return 0
+    clear && echo "SHOW THE TOKEN" && return 0
 }
 [[ ! -e RESET ]] && touch RESET
 api_bot=$1
@@ -15,7 +14,7 @@ ShellBot.username
 menu() {
     local msg
         msg="=×=×=×=×=×=×=×=×=×=×=×=×=×=\n"
-        msg+="<b>🤖 OLA SEJA BEM VINDO(a) 🤖</b>\n"
+        msg+="<b>🤖 HELLO WELCOME 🤖</b>\n"
         msg+="=×=×=×=×=×=×=×=×=×=×=×=×=×=\n\n"
         msg+="Gere seu teste agora mesmo!"
         ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
@@ -29,7 +28,7 @@ menu() {
 criarteste() {
     [[ $(grep -wc ${callback_query_from_id} lista) != '0' ]] && {
       ShellBot.sendMessage --chat_id ${callback_query_message_chat_id} \
-        --text "⚠️ VC JA CRIOU SSH HOJE ⚠️"
+        --text "⚠️ YOU HAVE ALREADY CREATED SSH TODAY ⚠️"
       return 0
     }
     usuario=$(echo TESTE$(( RANDOM% + 999 )))
@@ -52,7 +51,7 @@ rm -rf /etc/SSHPlus/userteste/$usuario.sh" > /etc/SSHPlus/userteste/$usuario.sh
     echo ${callback_query_from_id} >> lista
     # - ENVIA O SSH
     ShellBot.sendMessage --chat_id ${callback_query_message_chat_id} \
-    --text "$(echo -e "✅ <b>Criado com sucesso</b> ✅\n\nUSUARIO: <code>$usuario</code>\nSENHA: <code>$senha</code>\n\n⏳ Expira em: $tempo Hora")" \
+    --text "$(echo -e "✅ <b>Created successfully</b> ✅\n\nUSER: <code>$usuario</code>\nPASSWORD: <code>$senha</code>\n\n⏳ EXPIRED ON: $tempo Hora")" \
     --parse_mode html
     return 0
 }
